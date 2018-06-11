@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="../static/css/index2.css" type="text/css"></link>
+    <script src="../static/js/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+<table>
+    <tr>
+        <td><a id="www">编号sd</a></td>
+        <td>账号</td>
+        <td>密码</td>
+        <td>年龄</td>
+        <td>操作</td>
+    </tr>
+    <tr th:each="user : ${list}">
+      <td th:text="${user.id}"></td>
+      <td th:text="${user.name}"></td>
+
+      <td th:text="${user.age}"></td>
+    </tr>
+</table>
+<script>
+    alert("1");
+    $(function(){
+        $("#www").click(function(){
+            alert("222");
+        });
+    });
+</script>
+</body>
+</html>
