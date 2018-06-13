@@ -25,12 +25,11 @@
     </properties>
 
     <dependencies>
-        <!--MG依赖-->
-        <!--<dependency>-->
-        <!--<groupId>org.mybatis</groupId>-->
-        <!--<artifactId>mybatis</artifactId>-->
-        <!--<version>3.2.8</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3</version>
+        </dependency>
         <dependency>
             <groupId>org.mybatis.generator</groupId>
             <artifactId>mybatis-generator-core</artifactId>
