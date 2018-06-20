@@ -12,4 +12,5 @@ import com.sxt.pojo.LogsPO;
 public interface LogsDao {
 
     void save(LogsPO log);
+    void savelog(String s);
 }

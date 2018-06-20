@@ -1,7 +1,7 @@
 package com.sxt.servlet;
 
 import com.sxt.cfg.BaseContextHandler;
-import com.sxt.pojo.WebConfig;
+import com.sxt.cfg.WebConfig;
 import com.sxt.utils.IpHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

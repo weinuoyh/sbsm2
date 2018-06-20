@@ -2,7 +2,7 @@ package com.sxt.listener;
 
 import com.sxt.event.LogEvent;
 import com.sxt.pojo.LogsPO;
-import com.sxt.pojo.WebConfig;
+import com.sxt.cfg.WebConfig;
 import com.sxt.service.LogsDao;
 import com.sxt.utils.RequestData;
 import com.sxt.utils.ResponseData;
@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 @Component

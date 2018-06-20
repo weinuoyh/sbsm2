@@ -22,6 +22,8 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 
+import static com.sun.tools.javac.jvm.ByteCodes.ret;
+
 /****************************************************************************************
  实现AOP的切面主要有以下几个要素：
 
@@ -72,11 +74,11 @@ public class WebLogFiveAspect {
     @Autowired
     private ApplicationContext applicationContext;
 
-    ThreadLocal<Long> startTime = new ThreadLocal<>();
+    ThreadLocal<Long> startTime = new ThreadLocal<Long>();
 
     private static final String PRE_TAG = "(Order(5))============== ";
 
-    @Pointcut("execution(public * com.sxt..*.controller..*.*(..))")
+    @Pointcut("execution(public * com.sxt.controller..*.*(..))")
     public void webLog() {
     }
 
@@ -112,15 +114,23 @@ public class WebLogFiveAspect {
     }
 
     @AfterReturning(returning = "ret", pointcut = "webLog()")
-    public void doAfterReturning(Object ret) throws Throwable {
+    public String doAfterReturning(Object ret) throws Throwable {
         // 处理完请求，返回内容
         logger.debug(PRE_TAG + "(doAfterReturning) SPEND TIME : " + (System.currentTimeMillis() - startTime.get()));
 
-        if (ret instanceof ResponseData) {
+
             logger.debug(PRE_TAG + "(doAfterReturning) RESPONSE : " + ret);
             if (applicationContext != null) {
+
+                if (ret instanceof ResponseData) {
+
                 applicationContext.publishEvent(new LogEvent(this, BaseContextHandler.getRequestDate(), (ResponseData) ret, "doAfterReturning"));
+                 }else{
+                    applicationContext.publishEvent(new LogEvent(this, BaseContextHandler.getRequestDate(), null, "doAfterReturning"));
+
+                }
             }
-        }
+
+        return ret.toString();
     }
 }

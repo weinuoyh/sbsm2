@@ -1,4 +1,5 @@
-package com.sxt.pojo;
+package com.sxt.cfg;
+
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

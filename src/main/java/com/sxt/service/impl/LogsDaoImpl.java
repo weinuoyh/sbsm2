@@ -23,4 +23,9 @@ public class LogsDaoImpl implements LogsDao {
     public void save(LogsPO log) {
         mongoTemplate.save(log);
     }
+
+    @Override
+    public void savelog(String s) {
+        mongoTemplate.save(s);
+    }
 }
